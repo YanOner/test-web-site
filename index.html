@@ -60,6 +60,12 @@ limitations under the License.
   messaging.usePublicVapidKey('BHQaac1097_bdcsiRrJsNTWY9rV1DnE4HEIKF8E2cxUxO9dGRdH_Z-W6q89Pr_UtYLqvjvYsXSun8sZhBSFT6IU');
   // [END set_public_vapid_key]
 
+		navigator.serviceWorker
+    .register('/firebase-messaging-sw.js')
+    .then((registration) => {
+      firebase.messaging().useServiceWorker(registration);
+    });
+	
   // IDs of divs that display Instance ID token UI or request permission UI.
   const tokenDivId = 'token_div';
   const permissionDivId = 'permission_div';
@@ -238,11 +244,7 @@ limitations under the License.
 
   resetUI();
 	
-	navigator.serviceWorker
-    .register('/my-sw.js')
-    .then((registration) => {
-      firebase.messaging().useServiceWorker(registration);
-    });
+
 }
 	
 </script>
