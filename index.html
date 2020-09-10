@@ -237,6 +237,14 @@ limitations under the License.
   }
 
   resetUI();
+	
+	navigator.serviceWorker
+    .register('/my-sw.js')
+    .then((registration) => {
+      firebase.messaging().useServiceWorker(registration);
+    });
+}
+	
 </script>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
